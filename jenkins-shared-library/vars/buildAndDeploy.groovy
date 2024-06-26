@@ -12,11 +12,11 @@ def call() {
         sh 'mvn package'
     }
     stage('Build Docker Image') {
-        sh 'docker build -t <your-ecr-repo>:${env.BUILD_TAG} .'
+        sh 'docker build -t 058264127488.dkr.ecr.us-west-1.amazonaws.com/my-app:${env.BUILD_TAG} .'
     }
     stage('Push Docker Image') {
-        withDockerRegistry([credentialsId: 'ecr-credentials', url: '<your-ecr-url>']) {
-            sh 'docker push <your-ecr-repo>:${env.BUILD_TAG}'
+        withDockerRegistry([credentialsId: 'ecr-credentials', url: '058264127488.dkr.ecr.us-west-1.amazonaws.com/my-app']) {
+            sh 'docker push 058264127488.dkr.ecr.us-west-1.amazonaws.com/my-app:${env.BUILD_TAG}'
         }
     }
     stage('Deploy with Helm') {
