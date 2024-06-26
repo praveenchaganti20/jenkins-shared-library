@@ -1,5 +1,5 @@
 image:
-  repository: <your-ecr-repo>
+  repository: 058264127488.dkr.ecr.us-west-1.amazonaws.com/my-app
   tag: "latest"
   pullPolicy: IfNotPresent
 
